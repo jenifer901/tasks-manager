@@ -1,0 +1,77 @@
+<div class="grid grid-cols-3 gap-6">
+
+<div class="bg-gray-100 p-4 rounded">
+
+    <h2 class="font-bold mb-4">Todo</h2>
+
+    @for(task of todo(); track task.id){
+
+        <div class="bd-white rounded shadow p-3 mb-3">
+            <h3 class="font-medium">{{task.title}}</h3>
+            <p class="text-sm text-gray-500">{{task.description}}</p>
+        </div>
+    }
+
+</div>
+
+<div class="bg-gray-100 p-4 rounded">
+
+    <h2 class="font-bold mb-4">Doing</h2>
+
+    @for(task of doing(); track task.id){
+
+        <div class="bd-white rounded shadow p-3 mb-3">
+            <h3 class="font-medium">{{task.title}}</h3>
+            <p class="text-sm text-gray-500">{{task.description}}</p>
+        </div>
+    }
+
+</div>
+
+<div class="bg-gray-100 p-4 rounded">
+
+    <h2 class="font-bold mb-4">Done</h2>
+
+    @for(task of done(); track task.id){
+
+        <div class="bd-white rounded shadow p-3 mb-3">
+            <h3 class="font-medium">{{task.title}}</h3>
+            <p class="text-sm text-gray-500">{{task.description}}</p>
+        </div>
+    }
+
+</div>
+
+</div>
+<!--
+<div class="grid grid-cols-3 gap-6">
+@for (column of[
+{title:'Todo', id: 'todo', data: todo()},
+{title:'Doing', id: 'doing', data: doing()},
+{title:'Done', id: 'done', data: done()},
+]; track column.id){
+<div
+cdkDropList
+[id]="column.id"
+(cdkDropListDropped)="drop($event)"
+class="bg-gray-100 rounded-lg p-4"
+>
+<h2 class="font-bold mb-4">
+    {{column.title}}
+</h2>
+
+ @for(task of column.data; track task.id){
+ 
+ <div
+ cdkDrag
+ [cdkDragData]="task">
+ <app-task-card
+ [task]="task"/>
+</div>
+ }
+</div>
+
+}
+
+</div>
+-->
