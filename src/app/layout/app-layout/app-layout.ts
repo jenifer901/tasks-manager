@@ -6,12 +6,7 @@ import { Navbar } from '../navbar/navbar';
 @Component({
   selector: 'app-app-layout',
   standalone: true,
-  imports: [RouterOutlet,
-    Sidebar,
-    Navbar
-  ],
+  imports: [RouterOutlet, Sidebar, Navbar],
   templateUrl: './app-layout.html',
 })
-export class AppLayout {
-
-}
+export class AppLayout {}

@@ -1,14 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { TaskRepository } from '../../core/repositories/task.repository';
-import { AuthService } from '../../core/service/auth.services';
-import { TaskStatus } from '../../models/task.model';
+import { Component, inject, OnInit } from '@angular/core';
+import { TaskStatus } from '../../core/models/task.model';
+import { TaskService } from '../../core/service/task.service';
+import { TaskStore } from '../../core/store/task.store';
 
 /**
  * standalone component
  * inject() for dependeces
  * signal (tasks())
  * new control flow (@if, @for)
- * UI with Tailwind 
+ * UI with Tailwind
  */
 
 @Component({
@@ -17,13 +17,16 @@ import { TaskStatus } from '../../models/task.model';
   templateUrl: './dasboard.html',
   styleUrl: './dasboard.css',
 })
-export class Dasboard {
-  taskRepo = inject(TaskRepository);
-  auth = inject(AuthService);
+export class Dasboard implements OnInit {
+ private taskService = inject(TaskService);
+ store = inject(TaskStore)
+ tasks = this.store.task;
 
   TASKSTATUS = TaskStatus;
 
-  tasks = this.taskRepo.task;
-
-
+ 
+  ngOnInit(){
+    this.taskService.loadTasks().subscribe()
+  }
+  
 }

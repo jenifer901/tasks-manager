@@ -1,0 +1,85 @@
+<div class="flex items-center justify-center h-screen bg-gray-100">
+<div class="bg-white p-8 rounded shadow w-96">
+    <h1 class="text-x1 font-bold mb-4">Login</h1>
+<form [formGroup]="form" (ngSubmit)="login()" class="space-y-4">
+
+    <!--email-->
+    <div>
+        <input 
+    formControlName="email"
+    placeholder="email"
+    type="email"
+    class="boder p-2 w-full rounded"
+    /> 
+
+    <!--Crear clase input para el funcionamiento, ademas de los mensajes reutilizables de validadores-->
+        @if(form.controls.email.touched && form.controls.email.invalid){
+            <p class="text-red-500 text-sm mt-1">
+            @if(form.controls.email.errors?.['required']){
+                Email requerido
+            }    
+            @if(form.controls.email.errors?.['email']){
+                Email inválido
+            }  
+            </p>
+        }
+    </div>
+
+      <!--password-->
+    <div>
+        <input 
+    formControlName="password"
+    placeholder="password"
+    [type]=" showPassword ? 'text' : 'password' "
+    class="boder p-2 w-full rounded"
+    /> 
+
+    <button 
+    type="button"
+    (click)="togglePassword()"
+    class="text-sm text-blue-500">
+    Mostrar contraseña
+    </button>
+
+    <!--Crear clase input para el funcionamiento, ademas de los mensajes reutilizables de validadores-->
+        @if(form.controls.password.touched && form.controls.password.invalid){
+            <p class="text-red-500 text-sm mt-1">
+            @if(form.controls.password.errors?.['required']){
+                Password requerido
+            }    
+            @if(form.controls.password.errors?.['minlength']){
+                Mínimo 4 caracteres
+            }  
+            </p>
+        }
+    </div>
+
+    <!--Errores backend-->
+
+    @if(error){
+
+        <p class="text-red-500 text-sm">
+            {{error}}
+        </p>
+    }
+
+    <!--Button-->
+    <button 
+    type="submit"
+    [disabled]="loading"
+    class="bg-blue-500 text-white w-full p-2 rounded hover:bg-blue-600">
+        @if(!loading){
+        Login
+    }
+
+    @else {
+        Iniciando sessión...
+    } 
+    </button>
+
+   
+</form>
+   
+</div>
+
+</div>

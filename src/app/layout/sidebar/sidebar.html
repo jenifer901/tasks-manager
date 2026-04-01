@@ -1,22 +1,18 @@
 <aside class="bg-white dark:bg-gray-800 h-full shadow-md">
+  <div class="p-6 text-xl font-bold text-gray-800 dark:text-white">TeamFlow</div>
 
-<div class="p-6 text-xl font-bold text-gray-800 dark:text-white">
-    TeamFlow
-</div>
-
-<nav class="mt-4">
-
-@for(item of navItems; track item.route){
-    <a 
-    [routerLink]="item.route"
-    routerLinkActive="bg-blue-100 dark:bg-gray-700"
-    class="flex items-center px-6 py-3 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-    <span class="mr-3">
-        {{item.icon}}
-    </span>
-        {{item.label}}
-    </a>
-}
-</nav>
-
+  <nav class="mt-4">
+    @for (item of navItems; track item.route) {
+      <a
+        [routerLink]="item.route"
+        routerLinkActive="bg-blue-100 dark:bg-gray-700"
+        class="flex items-center px-6 py-3 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+      >
+        <span class="mr-3">
+          {{ item.icon }}
+        </span>
+        {{ item.label }}
+      </a>
+    }
+  </nav>
 </aside>

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface NavItem {
-  label: string,
-  route: string,
-  icon: string
+  label: string;
+  route: string;
+  icon: string;
 }
 
 @Component({
@@ -14,29 +14,16 @@ interface NavItem {
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
-
   navItems: NavItem[] = [
     {
       label: 'Dasboard',
       route: '/',
-      icon: ''
+      icon: '',
     },
-     {
+    {
       label: 'Tasks',
       route: '/tasks',
-      icon: ''
-    },
-     {
-      label: 'Projects',
-      route: '/projects',
-      icon: ''
-    },
-     {
-      label: 'Users',
-      route: '/users',
-      icon: ''
-    },
-
-  ]
-
+      icon: '',
+    }
+  ];
 }

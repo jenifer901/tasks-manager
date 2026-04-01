@@ -1,55 +1,43 @@
 <div class="space-y-6">
+  <!--welcome-->
+  <div class="bg-white p-6 rounded-lg shadow">
+    <h1 class="text-2xl font-bold">Welcome </h1>
 
-<!--welcome-->
-<div class="bg-white p-6 rounded-lg shadow">
-    <h1 class="text-2xl font-bold">
-        Welcome {{auth.user()?.name}}
-    </h1>
+    <p class="text-gray-500 mt-1">Aquí tienes un resumen de actividad</p>
+  </div>
 
-    <p class="text-gray-500 mt-1">
-        Aquí tienes un resumen de actividad
-    </p>
-</div>
-
-<!--Stats-->
-<div class="grid grid-cols-3 gap-6">
-<div class="bg-white p-6 rounded-lg shadow">
-    <p class="text-gray-500">
-        Total Tasks
-    </p>
-    <h2  class="text-3xlfont-bold">
-        {{tasks().filter(t => t.status === TASKSTATUS.done).length}}
-    </h2>
-</div>
-<!--Recent tasks-->
-<div class="bg-white p-6 rounded-lg shadow">
-    <h2 class="text-xl font-semibold mb-4">
-        Recent Tasks
-    </h2>
-    @if(tasks().length === 0){
-        <p class="text-gray-500">
-            No tasks yet
-        </p>
-    }
-    @else {
+  <!--Stats-->
+  <div class="grid grid-cols-3 gap-6">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <p class="text-gray-500">Total Tasks</p>
+      <h2 class="text-3xlfont-bold">
+        {{tasks().filter(t => t.status === TASKSTATUS.Done).length}}
+      </h2>
+    </div>
+    <!--Recent tasks-->
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-4">Recent Tasks</h2>
+      @if (tasks().length === 0) {
+        <p class="text-gray-500">No tasks yet</p>
+      } @else {
         <div class="space-y-3">
-            @for(task of tasks().slice(0,5); track task.id){
-                <div class="flex justify-between border-b pb-2">
-                    <div>
-                        <p class="font-medium">
-                            {{task.title}}
-                        </p>
-                        <p class="text-sm text-gray-500">
-                            {{task.description}}
-                        </p>
-                    </div>
-                    <span class="text-xs px-2 py-1 rounded bg-blue-100 text-blue-700">
-                        {{task.status}}
-                    </span>
-                </div>
-            }
+          @for (task of tasks().slice(0, 5); track task.id) {
+            <div class="flex justify-between border-b pb-2">
+              <div>
+                <p class="font-medium">
+                  {{ task.title }}
+                </p>
+                <p class="text-sm text-gray-500">
+                  {{ task.description }}
+                </p>
+              </div>
+              <span class="text-xs px-2 py-1 rounded bg-blue-100 text-blue-700">
+                {{ task.status }}
+              </span>
+            </div>
+          }
         </div>
-    }
-</div>
-</div>
+      }
+    </div>
+  </div>
 </div>

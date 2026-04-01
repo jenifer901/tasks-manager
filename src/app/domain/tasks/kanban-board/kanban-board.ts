@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { TaskRepository } from '../../../core/repositories/task.repository';
-import { TaskStatus } from '../../../models/task.model';
+import { Component, inject, OnInit } from '@angular/core';
+import { TaskStatus } from '../../../core/models/task.model';
+import { TaskStore } from '../../../core/store/task.store';
 //import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 /**
@@ -13,20 +13,13 @@ import { TaskStatus } from '../../../models/task.model';
   imports: [],
   templateUrl: './kanban-board.html',
   styleUrl: './kanban-board.css',
-  standalone: true
+  standalone: true,
 })
 export class KanbanBoard {
-  taskRepo = inject(TaskRepository);
-
-  todo = this.taskRepo.gestStatus(TaskStatus.todo);
-  doing = this.taskRepo.gestStatus(TaskStatus.doing);
-  done = this.taskRepo.gestStatus(TaskStatus.done);
-
- /* drop(event: CdkDragDrop<any>){
-    const task = event.item.data;
-    this.taskRepo.updateStatus(task.id, event.container.id)
-  }
-      no entiendo esta parte y porque no funciona  
-  */
+  storeTasks = inject(TaskStore);
+  
+  todo = this.storeTasks.getStatus(TaskStatus.Todo);
+  doing = this.storeTasks.getStatus(TaskStatus.Doing);
+  done = this.storeTasks.getStatus(TaskStatus.Done);
 
 }
