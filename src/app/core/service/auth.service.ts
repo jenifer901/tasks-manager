@@ -15,11 +15,6 @@ export class AuthService {
     return !!localStorage.getItem('auth');
   }
 
-  /*isAdmin(): boolean {
-    console.log(this.user().role)
-    return this.user().role === UserRoles.admin;
-  }*/
-
   private api = inject(ApiService);
   private router = inject(Router);
 

@@ -1,10 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { ButtonComponent } from '../../shared/ui/button';
 import { AuthService } from '../../core/service/auth.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [ButtonComponent],
   templateUrl: './navbar.html',
   standalone: true,
 })

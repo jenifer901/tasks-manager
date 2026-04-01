@@ -6,7 +6,7 @@ export const tasks = [
     description: 'Build dashboard UI',
     colum: 'c1',
     priority: 'high',
-    projectId: 'p1',
+    
   },
   {
     id: 't2',
@@ -14,7 +14,7 @@ export const tasks = [
     description: 'Build dashboard UI',
     colum: 'c1',
     priority: 'medium',
-    projectId: 'p1',
+    
   },
   {
     id: 't3',
@@ -22,7 +22,7 @@ export const tasks = [
     description: 'Build dashboard UI',
     colum: 'c1',
     priority: 'low',
-    projectId: 'p1',
+  
   },
   {
     id: 't4',
@@ -30,10 +30,9 @@ export const tasks = [
     description: 'Build dashboard UI',
     colum: 'c3',
     priority: 'low',
-    projectId: 'p1',
+   
   },
 ];
-
 export const users = [
   {
     id: 'u1',
@@ -52,17 +51,6 @@ export const users = [
     role: 'member',
   },
 ];
-
-//export const columns = []
-
-/**
- *  {
-     id: 'c2',
-  title: 'todo',
-  projectId: 'p2',
-  order: 1
-  },*/
- 
 
 export const columns = [
   {
@@ -90,4 +78,3 @@ export const columns = [
   order: 3
   }
 ];
-

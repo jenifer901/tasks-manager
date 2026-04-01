@@ -1,7 +1,6 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
 import { Task } from '../models/task.model';
 import { TaskService } from '../service/task.service';
-import { Observable } from 'rxjs';
 
 /**
  * uso de signals
