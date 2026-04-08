@@ -1,28 +1,36 @@
 
 export const tasks = [
   {
-    id: '1',
+    id: 't1',
     title: 'Create dashboard',
     description: 'Build dashboard UI',
-    status: 'todo',
+    colum: 'c1',
     priority: 'high',
-    projectId: '1',
+    projectId: 'p1',
   },
   {
-    id: '2',
+    id: 't2',
     title: 'Create dashboard',
     description: 'Build dashboard UI',
-    status: 'todo',
+    colum: 'c1',
     priority: 'medium',
-    projectId: '1',
+    projectId: 'p1',
   },
   {
-    id: '3',
+    id: 't3',
     title: 'Create dashboard',
     description: 'Build dashboard UI',
-    status: 'todo',
+    colum: 'c1',
     priority: 'low',
-    projectId: '1',
+    projectId: 'p1',
+  },
+  {
+    id: 't4',
+    title: 'Create dashboard',
+    description: 'Build dashboard UI',
+    colum: 'c3',
+    priority: 'low',
+    projectId: 'p1',
   },
 ];
 
@@ -44,3 +52,42 @@ export const users = [
     role: 'member',
   },
 ];
+
+//export const columns = []
+
+/**
+ *  {
+     id: 'c2',
+  title: 'todo',
+  projectId: 'p2',
+  order: 1
+  },*/
+ 
+
+export const columns = [
+  {
+     id: 'c1',
+  title: 'todo',
+  projectId: 'p1',
+  order: 0
+  },
+   {
+     id: 'c3',
+  title: 'doing',
+  projectId: 'p1',
+  order: 2
+  },
+   {
+     id: 'c4',
+  title: 'done',
+  projectId: 'p1',
+  order: 4
+  },
+   {
+     id: 'c5',
+  title: 'ffff',
+  projectId: 'p1',
+  order: 3
+  }
+];
+

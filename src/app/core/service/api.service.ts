@@ -1,33 +1,33 @@
 import { Injectable, inject } from '@angular/core';
 import { enviroment } from '../../../environments/enviroments';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-    private baseUrl = `/api`
-    
-    http = inject(HttpClient);
+  private baseUrl = `/api`;
 
-    get(endpoint: string){
-        return this.http.get(`${this.baseUrl}/${endpoint}`);
-    }
+  http = inject(HttpClient);
 
-    getById(endpoint: string, id: number){
-        return this.http.get(`${this.baseUrl}/${endpoint}/${id}`);
-    }
+  get(endpoint: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${endpoint}`);
+  }
 
-    post(endpoint: string, data: any){
-        return this.http.post(`${this.baseUrl}/${endpoint}`, data);
-    }
+  getById(endpoint: string, id: number) {
+    return this.http.get(`${this.baseUrl}/${endpoint}/${id}`);
+  }
 
-    put(endpoint: string, id: number, data: any){
-        return this.http.put(`${this.baseUrl}/${endpoint}/${id}`, data);
-    }
+  post(endpoint: string, data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/${endpoint}`, data);
+  }
 
-    delete(endpoint: string, id: number){
-        return this.http.delete(`${this.baseUrl}/${endpoint}/${id}`);
-    }
-  
+  put(endpoint: string, id: number, data: any) {
+    return this.http.put(`${this.baseUrl}/${endpoint}/${id}`, data);
+  }
+
+  delete(endpoint: string, id: number) {
+    return this.http.delete(`${this.baseUrl}/${endpoint}/${id}`);
+  }
 }

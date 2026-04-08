@@ -1,13 +1,16 @@
-<div class="bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+<div class="bg-white rounded shadow p p-3 mb-3 hover:shadow-md transition">
   <h3 class="font-semibold text-gray-800">
     {{ task.title }}
   </h3>
 
-  <p class="text-sm text-gray-500 mt-1">
-    {{ task.description }}
-  </p>
+  @if (task.description) {
+    <p class="text-sm text-gray-500 mt-1">
+      {{ task.description }}
+    </p>
+  }
 
-  <span class="text-xs px-2 py-1 rounded bg-clue-100 text-blue-700 mt-2 inline-block">
+  <!-- <span class="text-xs px-2 py-1 rounded bg-clue-100 text-blue-700 mt-2 inline-block">
     {{ task.priority }}
   </span>
+  -->
 </div>

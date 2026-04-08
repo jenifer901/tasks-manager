@@ -1,37 +1,25 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable, inject } from "@angular/core";
-import { Task } from "../models/task.model";
-import { ApiService } from './api.service';import { TaskStore } from "../store/task.store";
-import { tap } from 'rxjs';
-
-
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { Task } from '../models/task.model';
+import { ApiService } from './api.service';
+import { TaskStore } from '../store/task.store';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-export class TaskService{
-    private http = inject(HttpClient)
-    private api = inject(ApiService)
-    private store = inject(TaskStore)
+export class TaskService {
+  private api = inject(ApiService);
 
-    loadTasks() {
+  loadTasks(): Observable<Task[]> {
+    return this.api.get('tasks');
+  }
 
-        return this.api.get('tasks').pipe(
-            tap((tasks) => this.store.setTasks(tasks as Task[]))
-        )
-    }
+  createTask(task: Task): Observable<Task[]> {
+    return this.api.post('tasks', task);
+  }
 
-    /*createTask(task: Partial<Task>) {
-
-        return this.http.post<Task>(
-            this.api.endpoint('tasks'),
-            task
-        ).pipe(
-            tap(newTask => this.store.addTask(newTask))
-        )
-    }
-
-    update(task: Task) {
+  /* update(task: Task) {
 
         return this.http.put<Task>(
             this.api.endpoint(`tasks/${task.id}`),
@@ -49,5 +37,4 @@ export class TaskService{
             tap(()=> this.store.deleteTask(id))
         )
     }*/
-
 }

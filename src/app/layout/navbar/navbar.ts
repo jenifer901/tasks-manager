@@ -9,15 +9,13 @@ import { AuthService } from '../../core/service/auth.service';
   standalone: true,
 })
 export class Navbar {
-
   auth = inject(AuthService);
 
-  logout(){
+  logout() {
     this.auth.logout();
   }
 
   toggleDarMode() {
-
     // TODO: hacer funcionalidad y poner un emoji
     document.documentElement.classList.toggle('dark');
   }

@@ -1,0 +1,46 @@
+
+  <div class=" bg-white p-4 rounded-lg shadow">
+  <h2 class="font-bold mb-4">{{ column.title }}</h2>
+  <!--  meter el defer aqui para permitir o no añadir tarea  -->
+  @for (task of tasks; track task.id) {
+    <app-task-card [task]="task"> </app-task-card>
+  }
+  <!-- Añadir Task -->
+  @if (!isAddingTask) {
+    <button
+      class="bg-white text-sm hover:bg-gray-200 p-2 rounded text-left shadow"
+      (click)="openTaskEditor()"
+    >
+      + Añadir tarea
+    </button>
+  }
+
+  @if (isAddingTask) {
+    <div class="flex flex-col gap-2">
+      <form [formGroup]="form" class="space-y-4">
+        <textarea
+          formControlName="title"
+          placeholder="Introduce el titulo de la tarea..."
+          class="border rounded p-2 resize-none"
+        >
+        </textarea>
+        @if (form.controls.title.touched && form.controls.title.invalid) {
+          <p class="text-red-500 text-sm mt-1">
+            @if (form.controls.title.errors?.['required']) {
+              titulo requerido
+            }
+          </p>
+        }
+        <div class="flex gap-2">
+          <button (click)="addTask()" class="bg-green-600 text-white px-3 py-1 rounded">
+            Añadir tarea
+          </button>
+
+          <button (click)="cancelTask()" class="bg-red-600 text-white px-3 py-1 rounded">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  }
+</div>

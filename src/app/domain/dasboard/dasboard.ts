@@ -1,7 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { TaskStatus } from '../../core/models/task.model';
 import { TaskService } from '../../core/service/task.service';
+import { ColumnService } from '../../core/service/colum.service';
 import { TaskStore } from '../../core/store/task.store';
+import { ColumnStore } from '../../core/store/column.store';
 
 /**
  * standalone component
@@ -18,15 +19,11 @@ import { TaskStore } from '../../core/store/task.store';
   styleUrl: './dasboard.css',
 })
 export class Dasboard implements OnInit {
- private taskService = inject(TaskService);
- store = inject(TaskStore)
- tasks = this.store.task;
+  storeTask = inject(TaskStore);
+  storeColumn = inject(ColumnStore);
 
-  TASKSTATUS = TaskStatus;
-
- 
-  ngOnInit(){
-    this.taskService.loadTasks().subscribe()
+  ngOnInit() {
+    this.storeColumn.getColumns();
+    this.storeTask.getTask();
   }
-  
 }
